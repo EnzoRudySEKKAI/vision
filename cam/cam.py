@@ -52,14 +52,14 @@ while True:
     parts = [tl, tm, tr, ml, mm, mr, bl, bm, br]
     i = 0
     for img in parts:
-        #filtre une couleur
+        #filter one color
         hsv = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
 
         maskG = cv2.inRange(hsv, glower, gupper)
         maskB = cv2.inRange(hsv, blower, bupper)
         maskR1= cv2.inRange(hsv, rlower1, rupper1)
         maskR2= cv2.inRange(hsv, rlower2, rupper2)
-        #Si rouge
+        #if red
         maskR = cv2.bitwise_or(maskR1, maskR2)
         res = cv2.bitwise_and(img, img, mask= maskG)
 
